@@ -9,8 +9,9 @@
         "editorconfig": "^2.0.0"
     },
     "scripts": {},
-    
     "workspaces": [
+        "eq-chat-alyzer",
+        "eq-chat-alyzer/bff",
         "eq-chat-alyzer/frontend"
     ]
 }
