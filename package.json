@@ -1,0 +1,17 @@
+{
+    "author": "Patrick Ortiz",
+    "description": "",
+    "license": "ISC",
+    "name": "training-monorepo",
+    "version": "1.0.0",
+    
+    "dependencies": {},
+
+    "devDependencies": {
+        "editorconfig": "^2.0.0"
+    },
+
+    "scripts": {},
+    
+    "workspaces": []
+}
