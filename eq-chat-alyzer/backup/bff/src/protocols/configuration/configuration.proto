@@ -1,0 +1,11 @@
+service Configuration {
+    rpc getConfiguration (Empty) returns (ConfigurationRequestResponse) {};
+    rpc setConfiguration (ConfigurationRequestResponse) returns (ConfigurationRequestResponse) {};
+}
+
+message Empty {}
+
+message ConfigurationRequestResponse {
+    required string characterName = 1;
+    required string tankName = 2;
+}

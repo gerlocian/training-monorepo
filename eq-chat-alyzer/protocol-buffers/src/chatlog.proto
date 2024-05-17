@@ -1,0 +1,12 @@
+syntax = "proto3";
+package eqchatalyzer;
+
+service ChatLog {
+    rpc getRecentLinesFromLog(Empty) returns (stream ChatLogRequest) {}
+}
+
+message Empty {}
+
+message ChatLogLine {
+    required string line = 1;
+}

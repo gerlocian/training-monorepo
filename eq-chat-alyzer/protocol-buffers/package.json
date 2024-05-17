@@ -1,0 +1,15 @@
+{
+  "name": "protocol-buffers",
+  "version": "0.0.0",
+  "description": "A package that contains the protocol buffers for the gRPC connections.",
+  "entry": "dist/service-descriptor.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "Patrick Ortiz",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.10.8",
+    "typescript": "^5.4.5"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "log-reader",
+  "version": "0.0.0",
+  "description": "A service that reads and emits the lines that are in the eq log file.",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.10.8",
+    "protocol-buffers": "file:../protocol-buffers",
+    "typescript": "^5.4.5"
+  }
+}

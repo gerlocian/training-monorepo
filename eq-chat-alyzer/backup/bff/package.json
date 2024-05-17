@@ -1,0 +1,14 @@
+{
+    "author": "Patrick Ortiz",
+    "license": "ISC",
+    "name": "eq-chat-alyzer-bff",
+    "version": "1.0.0",
+    "dependencies": {
+        "@grpc/grpc-js": "^1.10.7",
+        "@grpc/proto-loader": "^0.7.13",
+        "ts-node": "^10.9.2"
+    },
+    "scripts": {
+        "start:dev": "ts-node ./service.ts"
+    }
+}
