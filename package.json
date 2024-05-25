@@ -4,14 +4,17 @@
     "license": "ISC",
     "name": "training-monorepo",
     "version": "1.0.0",
-    "dependencies": {},
     "devDependencies": {
-        "editorconfig": "^2.0.0"
+        "editorconfig": "^2.0.0",
+        "webpack": "^5.91.0",
+        "webpack-cli": "^5.1.4",
+        "webpack-dev-server": "^5.0.4"
     },
     "scripts": {},
     "workspaces": [
         "eq-chat-alyzer",
         "eq-chat-alyzer/log-reader",
-        "eq-chat-alyzer/protocol-buffers"
+        "eq-chat-alyzer/protocol-buffers",
+        "d3-experimentation"
     ]
 }

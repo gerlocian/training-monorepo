@@ -2,12 +2,19 @@
   "name": "log-reader",
   "version": "0.0.0",
   "description": "A service that reads and emits the lines that are in the eq log file.",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./dist/service.js"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@grpc/grpc-js": "^1.10.8",
     "protocol-buffers": "file:../protocol-buffers",
+    "text-file-follower": "^0.1.0",
     "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.4"
   }
 }

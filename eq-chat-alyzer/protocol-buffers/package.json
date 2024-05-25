@@ -2,14 +2,17 @@
   "name": "protocol-buffers",
   "version": "0.0.0",
   "description": "A package that contains the protocol buffers for the gRPC connections.",
-  "entry": "dist/service-descriptor.js",
+  "main": "./dist/service-descriptor.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc && cp ./src/chatlog.proto ./dist/chatlog.proto"
   },
   "author": "Patrick Ortiz",
   "license": "ISC",
   "dependencies": {
     "@grpc/grpc-js": "^1.10.8",
     "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.4"
   }
 }

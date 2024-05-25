@@ -36,7 +36,12 @@ export function createGrpcClient(host: string, port: string): ServiceClient {
 
 function createPackageDefinition(): ServiceClientConstructor {
     const packageDef = loadSync(join(__dirname, 'chatlog.proto'), {keepCase: true, defaults: true, oneofs: true});
-    return loadPackageDefinition(packageDef).ChatLog as ServiceClientConstructor;
+    console.log(packageDef);
+    console.log(loadPackageDefinition.toString());
+    console.log(loadPackageDefinition(packageDef));
+    const { ChatLog } = loadPackageDefinition(packageDef) as { ChatLog: ServiceClientConstructor };
+    console.log(ChatLog);
+    return ChatLog;
 }
 
 function startServer (server: Server): StartServerMethod {
