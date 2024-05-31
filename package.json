@@ -18,6 +18,7 @@
         "eq-chat-alyzer",
         "eq-chat-alyzer/log-reader",
         "eq-chat-alyzer/protocol-buffers",
-        "d3-experimentation"
+        "d3-experimentation",
+        "web-component-template"
     ]
 }
