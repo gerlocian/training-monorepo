@@ -1,9 +1,0 @@
-:root {
-    --background-color: #000;
-}
-
-:root > body {
-    margin: 0;
-    padding: 0;
-    background: var(--background-color);
-}
