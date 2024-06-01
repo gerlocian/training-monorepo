@@ -3,8 +3,8 @@ const { resolve } = require('node:path');
 module.exports = {
     entry: './src/index.js',
     output: {
-        library: 'l',
+        path: resolve(__dirname, 'dist'),
         filename: 'index.js',
-        path: resolve(__dirname, 'dist')
+        libraryTarget: 'umd',
     }
 }

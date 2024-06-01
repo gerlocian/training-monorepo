@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
-  "devDependencies": {
-    "html-loader": "^5.0.0"
-  },
+  "types": "./types/index.d.ts",
   "scripts": {
-    "build": "webpack --config ./webpack-base.config.js --mode production",
-    "start:dev": "webpack-dev-server --config ./webpack-dev.config.js --mode development"
+    "build": "npm run build:typeDefinition && npm run build:webpack",
+    "build:typeDefinition": "tsc",
+    "build:webpack": "webpack --config ./webpack-base.config.js --mode production"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
 }

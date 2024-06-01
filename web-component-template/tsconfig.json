@@ -1,0 +1,11 @@
+{
+    "include": [
+        "./src/**/*.js"
+    ],
+    "compilerOptions": {
+        "declaration": true,
+        "declarationDir": "./types",
+        "emitDeclarationOnly": true,
+        "allowJs": true
+    }
+}
