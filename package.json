@@ -21,6 +21,7 @@
         "eq-chat-alyzer/protocol-buffers",
         "d3-experimentation",
         "web-component-template",
-        "test-site"
+        "test-site",
+        "portfolio"
     ]
 }
