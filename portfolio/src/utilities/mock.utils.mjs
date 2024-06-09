@@ -7,17 +7,21 @@ export class MockDocument {
 }
 
 export class MockElement {
-    #attributes;
-    #children;
     parent;
     tagName;
+    #attributes;
+    #children;
 
     set innerHTML(children) {
-        this.#children = this.#processIncomingInnerHTML(children);
+        this.#children = Array.isArray(children) 
+            ? this.#processIncomingInnerHTMLArray(children)
+            : this.#processIncomingInnerHTMLString(children);
     }
 
     get attributes() {
-        return this.#attributes;
+        const children = [];
+        this.#attributes.forEach((value, key) => children.push({name: key, value}));
+        return children;
     }
 
     get children() {
@@ -33,9 +37,12 @@ export class MockElement {
     }
 
     constructor({tagName, attributes=[], children=[]}) {
+        const attrs = new Map();
+        attributes.forEach(attr => attrs.set(attr.name, attr.value));
+
         this.tagName = tagName;
-        this.#attributes = attributes;
-        this.#children = this.#processIncomingInnerHTML(children);
+        this.#attributes = attrs;
+        this.#children = this.#processIncomingInnerHTMLArray(children);
     }
 
     append(element) {
@@ -46,6 +53,10 @@ export class MockElement {
     cloneNode(deep=false) {
         let children = this.#children.length > 0 && deep ? this.#children.map(child => child.cloneNode(deep)) : [];
         return new MockElement(this.tagName, [...this.#attributes], children);
+    }
+
+    getAttribute(name) {
+        return this.#attributes.get(name);
     }
 
     querySelectorAll(query) {
@@ -62,9 +73,8 @@ export class MockElement {
         }) || [];
     }
 
-    setAttribute(name) {
-        if (!this.#attributes.includes(name))
-            this.#attributes = [...this.#attributes, name];
+    setAttribute(name, value) {
+        this.#attributes.set(name, value);
     }
 
     remove() {
@@ -73,7 +83,7 @@ export class MockElement {
     }
 
     removeAttribute(name) {
-        this.#attributes = this.#attributes.filter(attr => attr !== name);
+        this.#attributes = this.#attributes.delete(name);
     }
 
     removeChild(element) {
@@ -81,12 +91,29 @@ export class MockElement {
         return element;
     }
 
-    #processIncomingInnerHTML(children) {
+    #processIncomingInnerHTMLArray(children) {
         return children?.map(this.#setChildsParent.bind(this)) || [];
+    }
+
+    #processIncomingInnerHTMLString(children) {
+        return new MockTextNode(children);
     }
 
     #setChildsParent(child) {
         child.parent = this;
         return child;
+    }
+}
+
+export class MockTextNode {
+    parent;
+    #str;
+
+    constructor(str) {
+        this.#str = str
+    }
+
+    toString() {
+        return this.#str;
     }
 }
