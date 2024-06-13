@@ -58,8 +58,8 @@ export default class ComponentElement extends HTMLElement {
     /**
      * Lifecycle: called before the element is removed from the dom or disconnected.
      * Useful for removing event listeners.
-     * @returns 
      */
+    _onDestroy() {}
 
     #buildHTML() {
         return this.#html ? sanitize(this.#html) : '';
