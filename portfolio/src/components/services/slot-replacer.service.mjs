@@ -21,7 +21,7 @@ export function replaceSlotsTest(doc, slots, innerHTML) {
 }
 
 /**
- * @param {{}} slots
+ * @param {{[key: string]: string}[]} slots
  * @param {string} innerHTML
  */
 export default replaceSlotsTest.bind(this, this?.document || null);

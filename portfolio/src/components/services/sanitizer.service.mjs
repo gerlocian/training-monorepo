@@ -35,7 +35,7 @@ export function sanitizeTest(doc, blacklist, stringToSanitize) {
 /**
  * @param {string | {toString: () => string}} stringToSanitize
  */
-export default sanitizeTest.bind(this, this?.document || {}, {
+export default sanitizeTest.bind(this, this?.document || null, {
     elements: blacklistElements,
     attributes: blacklistAttributes
 });
