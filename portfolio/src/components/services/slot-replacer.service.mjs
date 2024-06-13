@@ -6,6 +6,8 @@ import sanitize from './sanitizer.service.mjs';
  * @param {string} innerHTML 
  */
 export function replaceSlotsTest(doc, slots, innerHTML) {
+    if (!doc) throw new TypeError('Document is not defined.');
+
     const replacer = doc.createElement('div');
     const decoder = doc.createElement('textarea');
 
@@ -22,4 +24,4 @@ export function replaceSlotsTest(doc, slots, innerHTML) {
  * @param {{}} slots
  * @param {string} innerHTML
  */
-export default replaceSlotsTest.bind(this, this?.document || {});
+export default replaceSlotsTest.bind(this, this?.document || null);

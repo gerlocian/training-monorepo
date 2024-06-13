@@ -21,6 +21,16 @@ describe('replaceslots method', () => {
         expect(replaceSlots.length).to.equal(2, 'the number of arguments for replaceSlots is expected to be 2');
     });
 
+    it('should throw an exception if the document is not provided', () => {
+        const noDocReplaceSlots = replaceSlotsTest.bind(this, null);
+        try {
+            noDocReplaceSlots('test');
+            expect.fail('Document not defined error did not get thrown');
+        } catch(e) {
+            expect(e.toString()).to.equal('TypeError: Document is not defined.');
+        }
+    });
+
     it('should replace the contents of slot elements with the provided text', () => {
         const testSlots = [
             {name: 'slot-1', value: 'this is the test content for slot 1'},

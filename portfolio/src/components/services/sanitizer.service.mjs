@@ -8,6 +8,8 @@ const blacklistAttributes = [
 ];
 
 export function sanitizeTest(doc, blacklist, stringToSanitize) {
+    if (!doc) throw new TypeError('Document is not defined.');
+
     const { elements, attributes } = blacklist;
     const searchParams = [
         ...elements,

@@ -16,6 +16,16 @@ describe('sanitize method', () => {
         expect(sanitize.length).to.equal(1, 'the number of arguments for sanitize is expected to be 1');
     });
 
+    it('should throw an exception if the document is not provided', () => {
+        const noDocSanitizer = sanitizeTest.bind(this, null);
+        try {
+            noDocSanitizer('test');
+            expect.fail('Document not defined error did not get thrown');
+        } catch(e) {
+            expect(e.toString()).to.equal('TypeError: Document is not defined.');
+        }
+    });
+
     it('should strip a blacklist element from the string if only one is defined', () => {
         // Create an element from which to derive an unclean string. 
         const elementBuilder = MockDocument.createElement('div');
