@@ -24,4 +24,4 @@ export function replaceSlotsTest(doc, slots, innerHTML) {
  * @param {{[key: string]: string}[]} slots
  * @param {string} innerHTML
  */
-export default replaceSlotsTest.bind(this, this?.document || null);
+export default replaceSlotsTest.bind(this, document || null);
